@@ -1,0 +1,22 @@
+slc,Line Chart
+mlc,Multi-line Chart
+boxp,Box Plot
+mboxp,Multi-box Plot
+sboxp,Stacked Box Plot
+viop,Violin Plot
+mviop,Multi-violin Plot
+sviop,Stacked Violin Plot
+swarmp,Swarm Plot
+kdep,KDE Plot
+scatp,Scatter Plot
+cscatp,Colored Scatter Plot
+bubp,Bubble Plot
+cbubp,Colored Bubble Plot
+colp,Column Plot
+barp,Bar Plot
+scolp,Stacked Column Plot
+sbarp,Stacked Bar Plot
+histp,Histogram
+shistp,Stacked Histogram
+heatp,Heatmap
+hexp,Hexbin Plot

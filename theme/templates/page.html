@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}{{page.title}}{% endblock %}
+
+{% block content %}
+  {% if 'picker' in page.title %}
+    <div class="row">
+    <div class='col-md-8'>
+        <h1>{{page.title}}</h1>
+        <div id='placeholder'></div>
+    </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='{{ SITEURL}}/theme/js/main.js'></script>
+  {% else %}
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class='header-section'>{{page.title}}</h1>
+            <div class='desc'>{{page.description}}</div>
+            <br />
+            <div class='contents'>Contents</div>
+            <ul>
+                {% for section in page.subsections.split(',') %}
+                <li>{{section}}</li>
+                {% endfor %}
+            </ul>
+            {% for sectionid in page.subsectionids.split(',') %}
+            {% endfor %}
+            {% for subcontent in page.content.split('\\') %}
+            <hr/>
+            <h2 class='header-subsection'>{{subcontent.split('|')[0]}}</h2>
+            <div class='desc'>{{subcontent.split('|')[1]}}</div>
+            <div class='img {{SITEURL+'/images/'+subcontent.split('|')[2]}}'></div>
+            <div class='table'>{{subcontent.split('|')[3]}}</div>
+            {% endfor %}
+        </div>
+    </div>
+  {% endif %}
+{% endblock %}
