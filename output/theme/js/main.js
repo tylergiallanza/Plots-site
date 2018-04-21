@@ -184,6 +184,12 @@ function showResults() {
         results = results.concat(search(s));
     }
     results.forEach((r,index) => {
+        var wrapperDiv = $('<div/>',
+            {
+            class:'plotdisplay-wrapper',
+            id:'plotdisplay-wrapper-'+r
+            }
+        );
         var keyDiv = $('<div/>',
             {
             text:id_to_names[r],
@@ -191,7 +197,16 @@ function showResults() {
             id:'plotdisplay-'+r
             }
         );
-        $('#placeholder').append(keyDiv);
+        var imgDiv = $('<div/>',
+            {
+            style:'background-image:url("theme/images/thumb/thumb-'+r+'.png")',
+            class:'plotdisplay-img',
+            id:'plotdisplay-img-'+r
+            }
+        );
+        wrapperDiv.append(keyDiv);
+        wrapperDiv.append(imgDiv);
+        $('#placeholder').append(wrapperDiv);
     });
     if(results.length == 0) {
         var keyDiv = $('<div/>',

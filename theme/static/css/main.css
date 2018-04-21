@@ -53,3 +53,40 @@
     display: inline-block;
     text-align: center;
 }
+
+.plotdisplay-wrapper {
+    width: 50%;
+    /*height: 50%;*/
+    padding-top:50%;
+    text-align:center;
+    position:relative;
+    display: inline-block;
+}
+
+.plotdisplay-wrapper:hover > .plotdisplay-img{
+    webkit-filter: blur(2px);
+    filter:blur(2px);
+}
+
+.plotdisplay {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 99;
+}
+
+.plotdisplay-wrapper:hover > .plotdisplay {
+    display: block;
+}
+
+.plotdisplay-img {
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top:0;
+}
