@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
 </head>
 <body>
+    <div class="header">
+        <div class='website-title'><a href='/'>Home</a></div><div class='blog-link'><a href='/blog'>Blog</a></div><div class='picker-link'><a href='/picker.html'>Plot Picker</a></div><div class='plots-link'><a href='/plots'>Plot Listing</a></div>
+    </div>
     <div class="container">
     <div class="row">
         <div class="col-md-8">
@@ -23,37 +26,30 @@
             <h2 class='header-subsection'><p>Scatter plots</h2>
             <div class='desc'>
 Scatter plots show the relationship between two columns by plotting every single datapoint as its own circle on a graph. Since scatter plots show every datapoint, they can also be used to reveal the distribution of the data.</div>
-            <div class='img /images/
-scatp.png'></div>
-            <div class='table'>
-2,numeric,numeric</p>
-<p></div>
+            <div class='plot-img' style='background-image:url(theme/images/scatp.png)'></div>
+            <!--<div class='table'>Use for <span class='table-num'>2</span> columns of variable types <span class='table-type'>2</span></div>-->
+            <div class='table'>Use for <span class='var-num'>2</span> columns of variable types <span class='var-types'>numeric and numeric</span></div>
             <hr/>
             <h2 class='header-subsection'>Colored scatter plots</h2>
             <div class='desc'>
 Colored scatter plots extend scatter plots by introducting color. Every datapoint is given a color that is determined by a categorical variable. Colored scatter plots thus allow for comparision of three different columns, two numeric and one categorical.</div>
-            <div class='img /images/
-scatp.png'></div>
-            <div class='table'>
-3,numeric,numeric,categorical</p>
-<p></div>
+            <div class='plot-img' style='background-image:url(theme/images/cscatp.png)'></div>
+            <!--<div class='table'>Use for <span class='table-num'>3</span> columns of variable types <span class='table-type'>3</span></div>-->
+            <div class='table'>Use for <span class='var-num'>3</span> columns of variable types <span class='var-types'>numeric,numeric,and categorical</span></div>
             <hr/>
             <h2 class='header-subsection'>Bubble charts</h2>
             <div class='desc'>
 Bubble charts are similar to colored scatter plots, but instead of introducing color as an additional variable bubble charts use the size of the circle. Every datapoint is then represented by three numeric columns: one for the x axis, one for the y axis, and one for the size of the bubble.</div>
-            <div class='img /images/
-bubp.png'></div>
-            <div class='table'>
-3,numeric,numeric,numeric</p>
-<p></div>
+            <div class='plot-img' style='background-image:url(theme/images/bubp.png)'></div>
+            <!--<div class='table'>Use for <span class='table-num'>3</span> columns of variable types <span class='table-type'>3</span></div>-->
+            <div class='table'>Use for <span class='var-num'>3</span> columns of variable types <span class='var-types'>numeric,numeric, and numeric</span></div>
             <hr/>
             <h2 class='header-subsection'>Colored bubble charts</h2>
             <div class='desc'>
 Colored bubble charts combine colored scatter plots with bubble charts. Colored bubble charts represent each datapoint using four columns: one numeric column for the x axis, one numeric column for the y axis, one numeric column for the bubble size, and one categorical column for the bubble color.</div>
-            <div class='img /images/
-cbubp.png
-4,numeric,numeric,numeric,categorical</p>'></div>
-            <div class='table'></div>
+            <div class='plot-img' style='background-image:url(theme/images/cbubp.png)'></div>
+            <!--<div class='table'>Use for <span class='table-num'>4</span> columns of variable types <span class='table-type'>4</span></div>-->
+            <div class='table'>Use for <span class='var-num'>4</span> columns of variable types <span class='var-types'>numeric,numeric,numeric, and categorical</span></div>
         </div>
     </div>
     </div>

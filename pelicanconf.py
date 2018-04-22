@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'Tyler Giallanza'
-SITENAME = 'plotpicker'
+SITENAME = 'Plot for Me'
 SITEURL = ''
 
 PATH = 'content'
@@ -35,7 +35,7 @@ SOCIAL = (('You can add links in your config file', '#'),
 
 DEFAULT_PAGINATION = 10
 
-STATIC_PATHS = ['js','images']
+STATIC_PATHS = ['js','images','favicon.ico']
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True

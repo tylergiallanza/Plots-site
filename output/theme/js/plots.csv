@@ -1,5 +1,5 @@
-slc,0,2,yes,no,no,yes
-mlc,3,1,2,yes,no,no,yes
+slp,2,0,2,yes,no,no,yes
+mlp,3,1,2,yes,no,no,yes
 boxp,1,0,1,no,no,yes,no
 mboxp,2,1,1,yes,no,yes,yes
 sboxp,3,2,1,yes,no,yes,yes

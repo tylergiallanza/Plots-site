@@ -2,6 +2,7 @@ var questions = ['columns','numcat','rel','comp','dist','trend','end'];
 var selected = [];
 var csv_data = {};
 var id_to_names = {};
+var id_to_page = {};
 var qid = 0;
 $('body').on('click','button',function(event) {
     console.log('clicked '+event.target.id + ' ' + event.target.className);
@@ -22,6 +23,26 @@ $('body').on('click','button',function(event) {
     }
     showQuestion();
 });
+$('body').on('click','.plotdisplay-wrapper',function(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    console.log('clicked '+event.target.id + ' ' + event.target.id.split('-')[2]);
+    openPage(event.target.id.split('-')[2]);
+});
+$('body').on('click','.backButton',function(event) {
+        selected = [];
+        questions = ['columns','numcat','rel','comp','dist','trend','end'];
+        qid = 0;
+        showQuestion();
+});
+
+function openPage(plotid) {
+    console.log(plotid);
+    newPath = '/plots/'+id_to_page[plotid]+'.html';
+    console.log(newPath);
+    window.location.hash=plotid;
+    window.location.pathname = newPath;
+}
 
 function make2Button(titles) {
     for(var i=0;i<2;i++) {
@@ -183,6 +204,23 @@ function showResults() {
         }
         results = results.concat(search(s));
     }
+    if(results.length == 0) {
+        var keyDiv = $('<div/>',
+            {
+            text:'Sorry - no matching plots found! Try loosening the restrictions next time.',
+            class:'sorryDisplay'
+            }
+        );
+        $('#placeholder').append(keyDiv);
+    } else {
+        var keyDiv = $('<div/>',
+            {
+            text:'Results',
+            class:'resultsDisplay'
+            }
+        );
+        $('#placeholder').append(keyDiv);
+    }
     results.forEach((r,index) => {
         var wrapperDiv = $('<div/>',
             {
@@ -193,8 +231,8 @@ function showResults() {
         var keyDiv = $('<div/>',
             {
             text:id_to_names[r],
-            class:'plotdisplay',
-            id:'plotdisplay-'+r
+            class:'plotdisplay-text',
+            id:'plotdisplay-text-'+r
             }
         );
         var imgDiv = $('<div/>',
@@ -208,15 +246,14 @@ function showResults() {
         wrapperDiv.append(imgDiv);
         $('#placeholder').append(wrapperDiv);
     });
-    if(results.length == 0) {
-        var keyDiv = $('<div/>',
-            {
-            text:'Sorry - no matching plots found! Try loosening the restrictions next time.',
-            class:'sorrydisplay'
-            }
-        );
-        $('#placeholder').append(keyDiv);
-    }
+    var btn = $('<div/>',
+        {
+        text:'Change criteria',
+        id:'back-button',
+        class:'backButton'
+        }
+    );
+    $('#placeholder').append(btn);
 }
 function processCSV(data) {
     var lines = data.split(/r\r\n|\n/);
@@ -230,6 +267,7 @@ function processCSVNames(data) {
     lines.forEach((line,index) => {
         split_data = line.split(',');
         id_to_names[split_data[0]] = split_data[1];
+        id_to_page[split_data[0]] = split_data[2];
     });
 }
 function loadCSV() {

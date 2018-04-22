@@ -1,14 +1,75 @@
-/*
-	Name: Smashing HTML5
-	Date: July 2009
-	Description: Sample layout for HTML5 and CSS3 goodness.
-	Version: 1.0
-	Author: Enrique Ramírez
-	Autor URI: http://enrique-ramirez.com
-*/
+.header {
+    height: 5vh;
+    background-color: #337ab7;
+    color: white;
+    font-size: 1.4em;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.header > div {
+    display: inline-flex;
+    height: 100%;
+    align-items: center;
+}
+
+.header > div > a {
+    color: white;
+}
+
+.row {
+    font-size: 1.2em;
+}
+
+.container > p {
+    font-size: 1.2em;
+}
+
+
+.contents {
+    font-size: 1.4em;
+}
+
+.header-subsection {
+    font-weight: bold;
+}
 
 #placeholder {
-    height: 500px;
+    height: 75vh;
+}
+
+#placeholder > button {
+    /*background: white;
+    border: 3px;
+    border-color:black;
+    border-style:solid;*/
+    background-color: #337ab7;
+    border: 1px solid #d1d1d1;
+    border-radius:4px;
+    box-shadow:none;
+    box-sizing:border-box;
+    color:white;
+    font-size: 1.4em;
+}
+
+.backButton {
+    background-color: #337ab7;
+    border: 1px solid #d1d1d1;
+    border-radius:4px;
+    box-shadow:none;
+    box-sizing:border-box;
+    color:white;
+    font-size: 1.4em;
+    width: 50%;
+    left:25%;
+    position:relative;
+    text-align: center;
+}
+
+#placeholder > button:disabled {
+    background-color: #9f9f9f !important;
 }
 
 .fullButton-2 {
@@ -55,7 +116,9 @@
 }
 
 .plotdisplay-wrapper {
-    width: 50%;
+    width: 48%;
+    margin-left: 1%;
+    margin-right: 1%;
     /*height: 50%;*/
     padding-top:50%;
     text-align:center;
@@ -64,11 +127,11 @@
 }
 
 .plotdisplay-wrapper:hover > .plotdisplay-img{
-    webkit-filter: blur(2px);
-    filter:blur(2px);
+    webkit-filter: blur(2px) brightness(50%) grayscale(50%);
+    filter:blur(2px) brightness(50%) grayscale(50%);
 }
 
-.plotdisplay {
+.plotdisplay-text {
     display: none;
     position: absolute;
     left: 0;
@@ -76,9 +139,11 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 99;
+    font-weight: bold;
+    color: white;
 }
 
-.plotdisplay-wrapper:hover > .plotdisplay {
+.plotdisplay-wrapper:hover > .plotdisplay-text {
     display: block;
 }
 
@@ -89,4 +154,34 @@
     background-repeat: no-repeat;
     position: absolute;
     top:0;
+}
+
+.plot-img {
+    margin-top: 5px;
+    width: 80%;
+    left: 10%;
+    position: relative;
+    padding-top: 55%;
+    height: 100px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+
+.sorryDisplay {
+    font-size: 1.4em;
+}
+
+.resultsDisplay {
+    font-size: 2em;
+    width: 100%;
+    text-align: center;
+}
+
+.var-num {
+    font-weight: bold;
+}
+
+.var-types {
+    font-weight: bold;
 }

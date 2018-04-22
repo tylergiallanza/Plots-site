@@ -3,37 +3,58 @@
 {% block title %}{{page.title}}{% endblock %}
 
 {% block content %}
-  {% if 'picker' in page.title %}
+  {% if 'Picker' in page.title %}
     <div class="row">
-    <div class='col-md-8'>
+    <div class='col-md-12'>
         <h1>{{page.title}}</h1>
+        <br></br>
         <div id='placeholder'></div>
     </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src='{{ SITEURL}}/theme/js/main.js'></script>
   {% else %}
-    <div class="row">
-        <div class="col-md-8">
-            <h1 class='header-section'>{{page.title}}</h1>
-            <div class='desc'>{{page.description}}</div>
-            <br />
-            <div class='contents'>Contents</div>
-            <ul>
-                {% for section in page.subsections.split(',') %}
-                <li>{{section}}</li>
-                {% endfor %}
-            </ul>
-            {% for sectionid in page.subsectionids.split(',') %}
-            {% endfor %}
-            {% for subcontent in page.content.split('\\') %}
-            <hr/>
-            <h2 class='header-subsection'>{{subcontent.split('|')[0]}}</h2>
-            <div class='desc'>{{subcontent.split('|')[1]}}</div>
-            <div class='img {{SITEURL+'/images/'+subcontent.split('|')[2]}}'></div>
-            <div class='table'>{{subcontent.split('|')[3]}}</div>
+      {% if 'about' in page.description %}
+          <h1>{{page.title}}</h1>
+          {{page.content}}
+      {% elif 'Listing' in page.description %}
+        <div class="row">
+        <div class='col-md-12'>
+            <h1>{{page.title}}</h1>
+            {% for p in (pages if 'plots' in page.description else articles) %}
+                {% if 'ignore' not in p.description %}
+                <a href="/{{ p.slug }}.html">{{ p.title }}</a>
+                <br></br>
+                {% endif %}
+            {% else %}
+                No blog posts yet!
             {% endfor %}
         </div>
-    </div>
+        </div>
+      {% else %}
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class='header-section'>{{page.title}}</h1>
+                <div class='desc'>{{page.description}}</div>
+                <br />
+                <div class='contents'>Contents</div>
+                <ul>
+                    {% for section in page.subsections.split(',') %}
+                    <li>{{section}}</li>
+                    {% endfor %}
+                </ul>
+                {% for sectionid in page.subsectionids.split(',') %}
+                {% endfor %}
+                {% for subcontent in page.content.split('\\') %}
+                <hr/>
+                <h2 class='header-subsection'>{{subcontent.split('|')[0]}}</h2>
+                <div class='desc'>{{subcontent.split('|')[1]}}</div>
+                <div class='plot-img' style='background-image:url({{'../theme/images/'+subcontent.split('|')[2]|trim}})'></div>
+                <!--<div class='table'>Use for <span class='table-num'>{{subcontent.split('|')[3]|trim}}</span> columns of variable types <span class='table-type'>{{subcontent.split('|')[3]|trim}}</span></div>-->
+                <div class='table'>Use for <span class='var-num'>{{subcontent.split('|')[3]|trim|striptags}}</span> columns of variable types <span class='var-types'>{{subcontent.split('|')[4]|trim|striptags}}</span></div>
+                {% endfor %}
+            </div>
+        </div>
+      {% endif %}
   {% endif %}
 {% endblock %}
